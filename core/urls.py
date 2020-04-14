@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import (
+    LandingView,
     ItemDetailView,
     CheckoutView,
     HomeView,
@@ -15,7 +16,8 @@ from .views import (
 app_name = 'core'
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
+    path ('', LandingView.as_view(), name='landing'), 
+    path('products/', HomeView.as_view(), name='home'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('product/<slug>/', ItemDetailView.as_view(), name='product'),
@@ -27,3 +29,8 @@ urlpatterns = [
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund')
 ]
+
+    # Previous paths noted here. just to remember the paths for updated one
+    # path ('home/', LandingView.as_view(), name='landing'), 
+    # path('', HomeView.as_view(), name='home'),
+
