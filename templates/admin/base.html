@@ -64,11 +64,9 @@
   </style>
 </head>
 
-{% include "navbar.html" %}
+{% include "admin/nav.html" %}
 
 <body>
-  {% block hero_area %}
-  {% endblock %}
 
   {% if messages %}
   <div class="mt-5 pt-4">
@@ -86,10 +84,8 @@
   {% block content %}
   {% endblock content %}
 
-  {% block extra_body %}
-  {% endblock %}
 
-  {% include "footer.html" %}
+  {% include "admin/footer.html" %}
   {% include "scripts.html" %}
 
   {% block extra_scripts %}

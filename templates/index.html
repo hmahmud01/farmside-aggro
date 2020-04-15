@@ -1,25 +1,19 @@
 {% extends "base.html" %}
 
+
+
 {% block hero_area %}
 {% include "hero.html" %}
 
 <main>
-    <div class="z-depth-1">
+    <div class="z-depth-1 yellow lighten-5">
         <section class="dark-grey-text container">
 
             <div class="row pr-lg-5">
-                <div class="col-md-7 mb-4">
-
-                    <div class="view">
-                        <img src="https://mdbootstrap.com/img/illustrations/graphics(4).png" class="img-fluid"
-                            alt="smaple image">
-                    </div>
-
-                </div>
                 <div class="col-md-5 d-flex align-items-center">
                     <div>
 
-                        <h3 class="font-weight-bold mb-4">Material Design Blocks</h3>
+                        <h3 class="font-weight-bold mb-4">About <span class="cyan-text">Us</span></h3>
 
                         <p>Lorem ipsum dolor sit amet consectetur adip elit. Maiores deleniti explicabo voluptatem
                             quisquam nulla asperiores aspernatur aperiam voluptate et consectetur minima delectus,
@@ -29,6 +23,14 @@
 
                     </div>
                 </div>
+                <div class="col-md-7 mb-4">
+
+                    <div class="view">
+                        <img src="static/img/contents/field.png" class="img-fluid p-5"
+                            alt="smaple image">
+                    </div>
+
+                </div>
             </div>
 
         </section>
@@ -36,81 +38,83 @@
     </div>
 
 
-    <div class="container my-5">
+    <!-- SEVICES -->
+    <div class="view">
+        <div class="container my-5">
 
-        <!-- Section -->
-        <section>
-
-            <h6 class="font-weight-bold text-center grey-text text-uppercase small mb-4">Services</h6>
-            <h3 class="font-weight-bold text-center dark-grey-text pb-2">Our Services</h3>
-            <hr class="w-header my-4">
-            <p class="lead text-center text-muted pt-2 mb-5">Join thousands of satisfied customers using our template
-                globally.</p>
-
-            <div class="row">
-
-                <div class="col-md-6 col-xl-3 mb-4">
-                    <div class="card text-center bg-success text-white">
-                        <div class="card-body">
-                            <p class="mt-4 pt-2"><i class="far fa-object-ungroup fa-4x"></i></p>
-                            <h5 class="font-weight-normal my-4 py-2"><a class="text-white" href="#">Web Design</a></h5>
-                            <p class="mb-4">He polite be object change. Consider no overcame yourself sociable children.
-                            </p>
+            <!-- Section -->
+            <section>
+                <h3 class="font-weight-bold text-center dark-grey-text pb-2">Our Services</h3>
+                <hr class="w-header my-4">
+                <p class="lead text-center text-muted pt-2 mb-5">Join thousands of satisfied customers using our template
+                    globally.</p>
+    
+                <div class="row">
+    
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card text-center bg-success text-white">
+                            <div class="card-body">
+                                <p class="mt-4 pt-2"><i class="far fa-object-ungroup fa-4x"></i></p>
+                                <h5 class="font-weight-normal my-4 py-2"><a class="text-white" href="#">Web Design</a></h5>
+                                <p class="mb-4">He polite be object change. Consider no overcame yourself sociable children.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-xl-3 mb-4">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <p class="mt-4 pt-2"><i class="fas fa-mobile-alt fa-4x grey-text"></i></p>
-                            <h5 class="font-weight-normal my-4 py-2"><a class="dark-grey-text" href="#">Mobile App</a>
-                            </h5>
-                            <p class="text-muted mb-4">He polite be object change. Consider no overcame yourself
-                                sociable children.</p>
+    
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <p class="mt-4 pt-2"><i class="fas fa-mobile-alt fa-4x grey-text"></i></p>
+                                <h5 class="font-weight-normal my-4 py-2"><a class="dark-grey-text" href="#">Mobile App</a>
+                                </h5>
+                                <p class="text-muted mb-4">He polite be object change. Consider no overcame yourself
+                                    sociable children.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-xl-3 mb-4">
-                    <div class="card text-center deep-purple lighten-1 text-white">
-                        <div class="card-body">
-                            <p class="mt-4 pt-2"><i class="fas fa-chart-line fa-4x"></i></p>
-                            <h5 class="font-weight-normal my-4 py-2"><a class="text-white" href="#">Digital
-                                    Marketing</a></h5>
-                            <p class="mb-4">He polite be object change. Consider no overcame yourself sociable children.
-                            </p>
+    
+                    <div class="col-md-6 col-xl-3 mb-4">
+                        <div class="card text-center deep-purple lighten-1 text-white">
+                            <div class="card-body">
+                                <p class="mt-4 pt-2"><i class="fas fa-chart-line fa-4x"></i></p>
+                                <h5 class="font-weight-normal my-4 py-2"><a class="text-white" href="#">Digital
+                                        Marketing</a></h5>
+                                <p class="mb-4">He polite be object change. Consider no overcame yourself sociable children.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-xl-3">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <p class="mt-4 pt-2"><i class="fas fa-bullhorn fa-4x grey-text"></i></p>
-                            <h5 class="font-weight-normal my-4 py-2"><a class="dark-grey-text" href="#">Branding
-                                    Package</a></h5>
-                            <p class="text-muted mb-4">He polite be object change. Consider no overcame yourself
-                                sociable children.</p>
+    
+                    <div class="col-md-6 col-xl-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <p class="mt-4 pt-2"><i class="fas fa-bullhorn fa-4x grey-text"></i></p>
+                                <h5 class="font-weight-normal my-4 py-2"><a class="dark-grey-text" href="#">Branding
+                                        Package</a></h5>
+                                <p class="text-muted mb-4">He polite be object change. Consider no overcame yourself
+                                    sociable children.</p>
+                            </div>
                         </div>
                     </div>
+    
                 </div>
-
-            </div>
-
-        </section>
-        <!-- Section -->
-
+    
+            </section>
+            <!-- Section -->
+    
+        </div>
     </div>
-
+    
+    <!-- SHOP NOW -->
     <div class="px-0 z-depth-1">
 
         <!--Section: Content-->
-        <section class="text-center white-text d-md-flex justify-content-between p-5 indigo lighten-2">
+        <section class="text-center white-text d-md-flex justify-content-between p-5 amber darken-4">
 
-            <h3 class="font-weight-bold mb-md-0 mb-4 mt-2 pt-1">Lorem ipsum dolor sit amet.</h3>
+            <h3 class="mb-md-0 mb-4 mt-2 pt-1">Shop From Here.</h3>
 
-            <a href="/products" class="btn btn-white btn-rounded">Shop Now</a>
+            <a href="/products" class="btn btn-white btn-rounded">Order Now</a>
             <!-- <button type="button" class="btn btn-white btn-rounded">Take a test drive</button> -->
 
         </section>
@@ -118,244 +122,243 @@
 
     </div>
 
-    <div class="container my-5">
+    <!-- WHAT WE DO -->
+    <div class="view">
+        <div class="container my-5">
 
 
-        <!-- Section: Block Content -->
-        <section class="dark-grey-text text-center">
-
-            <h3 class="text-center font-weight-bold mb-4 pb-2">Our best projects</h3>
-            <p class="text-center text-muted w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam
-                voluptas nostrum quisquam eum porro a pariatur veniam.</p>
-
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-md-6 mb-4">
-
-                    <!-- Card -->
-                    <div class="card card-image"
-                        style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20%2873%29.jpg);">
-                        <div
-                            class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 px-md-5 rounded">
-                            <div>
-                                <h6 class="pink-text">
-                                    <i class="fas fa-chart-pie"></i>
-                                    <strong> Marketing</strong>
-                                </h6>
-                                <h3 class="py-3 font-weight-bold">
-                                    <strong>This is card title</strong>
-                                </h3>
-                                <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
-                                    fugiat,
-                                    laboriosam, voluptatem, optio vero odio nam sit officia accusamus minus error nisi
-                                    architecto
-                                    nulla ipsum dignissimos. Odit sed qui, dolorum!
-                                </p>
-                                <a class="btn btn-pink btn-rounded btn-md"><i class="fas fa-clone left"></i> View
-                                    project</a>
+            <!-- Section: Block Content -->
+            <section class="dark-grey-text text-center">
+    
+                <h3 class="text-center font-weight-bold mb-4 pb-2">Our Operations</h3>
+                <p class="text-center text-muted w-responsive mx-auto mb-5">Our Current Operations running through this organization.</p>
+    
+                <!-- Grid row -->
+                <div class="row">
+    
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-4">
+    
+                        <!-- Card -->
+                        <div class="card card-image"
+                            style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20%2873%29.jpg);">
+                            <div
+                                class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 px-md-5 rounded">
+                                <div>
+                                    <h6 class="pink-text">
+                                        <i class="fas fa-chart-pie"></i>
+                                        <strong> Training</strong>
+                                    </h6>
+                                    <h3 class="py-3 font-weight-bold">
+                                        <strong>Get training here</strong>
+                                    </h3>
+                                    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+                                        fugiat,
+                                        laboriosam, voluptatem, optio vero odio nam sit officia accusamus minus error nisi
+                                        architecto
+                                        nulla ipsum dignissimos. Odit sed qui, dolorum!
+                                    </p>
+                                    <a class="btn btn-pink btn-rounded btn-md"><i class="fas fa-clone left"></i> Get Admitted </a>
+                                </div>
                             </div>
                         </div>
+                        <!-- Card -->
+    
                     </div>
-                    <!-- Card -->
-
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-6 mb-4">
-
-                    <!-- Card -->
-                    <div class="card card-image"
-                        style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20%2847%29.jpg);">
-                        <div
-                            class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 px-md-5 rounded">
-                            <div>
-                                <h6 class="green-text">
-                                    <i class="fas fa-eye"></i>
-                                    <strong> Entertainment</strong>
-                                </h6>
-                                <h3 class="py-3 font-weight-bold">
-                                    <strong>This is card title</strong>
-                                </h3>
-                                <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
-                                    fugiat,
-                                    laboriosam, voluptatem, optio vero odio nam sit officia accusamus minus error nisi
-                                    architecto
-                                    nulla ipsum dignissimos. Odit sed qui, dolorum!
-                                </p>
-                                <a class="btn btn-success btn-rounded btn-md"><i class="fas fa-clone left"></i> View
-                                    project</a>
+                    <!-- Grid column -->
+    
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-4">
+    
+                        <!-- Card -->
+                        <div class="card card-image"
+                            style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20%2847%29.jpg);">
+                            <div
+                                class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 px-md-5 rounded">
+                                <div>
+                                    <h6 class="green-text">
+                                        <i class="fas fa-eye"></i>
+                                        <strong> Shop</strong>
+                                    </h6>
+                                    <h3 class="py-3 font-weight-bold">
+                                        <strong>Order Our groceries</strong>
+                                    </h3>
+                                    <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat
+                                        fugiat,
+                                        laboriosam, voluptatem, optio vero odio nam sit officia accusamus minus error nisi
+                                        architecto
+                                        nulla ipsum dignissimos. Odit sed qui, dolorum!
+                                    </p>
+                                    <a class="btn btn-success btn-rounded btn-md"><i class="fas fa-clone left"></i> Order Here</a>
+                                </div>
                             </div>
                         </div>
+                        <!-- Card -->
+    
                     </div>
-                    <!-- Card -->
-
+                    <!-- Grid column -->
+    
                 </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </section>
-        <!-- Section: Block Content -->
-
-
+                <!-- Grid row -->
+    
+            </section>
+            <!-- Section: Block Content -->
+    
+    
+        </div>
     </div>
+   
 
 
     <!-- FAQ AREA  -->
 
-    <div class="container my-5">
+    <div class="grey lighten-5 view">
+        <div class="container my-5">
 
 
-        <!--Section: Content-->
-        <section>
-
-            <h6 class="font-weight-normal text-uppercase font-small grey-text mb-4 text-center">FAQ</h6>
-            <!-- Section heading -->
-            <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Frequently Asked Questions</h3>
-            <hr class="w-header">
-            <!-- Section description -->
-            <p class="lead text-muted mx-auto mt-4 pt-2 mb-5 text-center">Got a question? We've got answers. If you have
-                some other questions, see our support center.</p>
-
-            <div class="row">
-                <div class="col-md-12 col-lg-10 mx-auto mb-5">
-
-                    <!--Accordion wrapper-->
-                    <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
-
-                        <!-- Accordion card -->
-                        <div class="card border-top border-bottom-0 border-left border-right border-light">
-
-                            <!-- Card header -->
-                            <div class="card-header border-bottom border-light" role="tab" id="headingOne1">
-                                <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1"
-                                    aria-expanded="true" aria-controls="collapseOne1">
-                                    <h5 class="black-text font-weight-normal mb-0">
-                                        Is this a secure site for purchases? <i
-                                            class="fas fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                </a>
-                            </div>
-
-                            <!-- Card body -->
-                            <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-                                data-parent="#accordionEx">
-                                <div class="card-body">
-                                    Absolutely! We work with top payment companies which guarantees your safety and
-                                    security. All billing information is stored on our payment processing partner which
-                                    has the most stringent level of certification available in the payments industry.
+            <!--Section: Content-->
+            <section>
+    
+                <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Frequently Asked Questions</h3>
+                <hr class="w-header">
+                <!-- Section description -->
+                <p class="lead text-muted mx-auto mt-4 pt-2 mb-5 text-center">Got a question? We've got answers. If you have
+                    some other questions, see our support center.</p>
+    
+                <div class="row">
+                    <div class="col-md-12 col-lg-10 mx-auto mb-5">
+    
+                        <!--Accordion wrapper-->
+                        <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+    
+                            <!-- Accordion card -->
+                            <div class="card border-top border-bottom-0 border-left border-right border-light">
+    
+                                <!-- Card header -->
+                                <div class="card-header border-bottom border-light" role="tab" id="headingOne1">
+                                    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1"
+                                        aria-expanded="true" aria-controls="collapseOne1">
+                                        <h5 class="black-text font-weight-normal mb-0">
+                                            Is this a secure site for purchases? <i
+                                                class="fas fa-angle-down rotate-icon"></i>
+                                        </h5>
+                                    </a>
                                 </div>
-                            </div>
-
-                        </div>
-                        <!-- Accordion card -->
-
-                        <!-- Accordion card -->
-                        <div class="card border-bottom-0 border-left border-right border-light">
-
-                            <!-- Card header -->
-                            <div class="card-header border-bottom border-light" role="tab" id="headingTwo2">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
-                                    href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                                    <h5 class="black-text font-weight-normal mb-0">
-                                        How long are your contracts? <i class="fas fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                </a>
-                            </div>
-
-                            <!-- Card body -->
-                            <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
-                                data-parent="#accordionEx">
-                                <div class="card-body">
-                                    Currently, we only offer monthly subscription. You can upgrade or cancel your
-                                    monthly account at any time with no further obligation.
+    
+                                <!-- Card body -->
+                                <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                                    data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        Absolutely! We work with top payment companies which guarantees your safety and
+                                        security. All billing information is stored on our payment processing partner which
+                                        has the most stringent level of certification available in the payments industry.
+                                    </div>
                                 </div>
+    
                             </div>
-
-                        </div>
-                        <!-- Accordion card -->
-
-                        <!-- Accordion card -->
-                        <div class="card border-bottom-0 border-left border-right border-light">
-
-                            <!-- Card header -->
-                            <div class="card-header border-bottom border-light" role="tab" id="headingThree3">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
-                                    href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
-                                    <h5 class="black-text font-weight-normal mb-0">
-                                        Can I cancel my subscription? <i class="fas fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                </a>
-                            </div>
-
-                            <!-- Card body -->
-                            <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
-                                data-parent="#accordionEx">
-                                <div class="card-body">
-                                    You can cancel your subscription anytime in your account. Once the subscription is
-                                    cancelled, you will not be charged next month. You will continue to have access to
-                                    your account until your current subscription expires.
+                            <!-- Accordion card -->
+    
+                            <!-- Accordion card -->
+                            <div class="card border-bottom-0 border-left border-right border-light">
+    
+                                <!-- Card header -->
+                                <div class="card-header border-bottom border-light" role="tab" id="headingTwo2">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
+                                        href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+                                        <h5 class="black-text font-weight-normal mb-0">
+                                            How long are your contracts? <i class="fas fa-angle-down rotate-icon"></i>
+                                        </h5>
+                                    </a>
                                 </div>
-                            </div>
-
-                        </div>
-                        <!-- Accordion card -->
-
-                        <!-- Accordion card -->
-                        <div class="card border-left border-right border-light">
-
-                            <!-- Card header -->
-                            <div class="card-header border-bottom border-light" role="tab" id="headingThree4">
-                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
-                                    href="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
-                                    <h5 class="black-text font-weight-normal mb-0">
-                                        Can I request refund? <i class="fas fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                </a>
-                            </div>
-
-                            <!-- Card body -->
-                            <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4"
-                                data-parent="#accordionEx">
-                                <div class="card-body">
-                                    Unfortunately, not. We do not issue full or partial refunds for any reason.
+    
+                                <!-- Card body -->
+                                <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                                    data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        Currently, we only offer monthly subscription. You can upgrade or cancel your
+                                        monthly account at any time with no further obligation.
+                                    </div>
                                 </div>
+    
                             </div>
-
+                            <!-- Accordion card -->
+    
+                            <!-- Accordion card -->
+                            <div class="card border-bottom-0 border-left border-right border-light">
+    
+                                <!-- Card header -->
+                                <div class="card-header border-bottom border-light" role="tab" id="headingThree3">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
+                                        href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                                        <h5 class="black-text font-weight-normal mb-0">
+                                            Can I cancel my subscription? <i class="fas fa-angle-down rotate-icon"></i>
+                                        </h5>
+                                    </a>
+                                </div>
+    
+                                <!-- Card body -->
+                                <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                                    data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        You can cancel your subscription anytime in your account. Once the subscription is
+                                        cancelled, you will not be charged next month. You will continue to have access to
+                                        your account until your current subscription expires.
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <!-- Accordion card -->
+    
+                            <!-- Accordion card -->
+                            <div class="card border-left border-right border-light">
+    
+                                <!-- Card header -->
+                                <div class="card-header border-bottom border-light" role="tab" id="headingThree4">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx"
+                                        href="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
+                                        <h5 class="black-text font-weight-normal mb-0">
+                                            Can I request refund? <i class="fas fa-angle-down rotate-icon"></i>
+                                        </h5>
+                                    </a>
+                                </div>
+    
+                                <!-- Card body -->
+                                <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4"
+                                    data-parent="#accordionEx">
+                                    <div class="card-body">
+                                        Unfortunately, not. We do not issue full or partial refunds for any reason.
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <!-- Accordion card -->
+    
                         </div>
-                        <!-- Accordion card -->
-
+                        <!-- Accordion wrapper -->
+    
                     </div>
-                    <!-- Accordion wrapper -->
-
                 </div>
-            </div>
-
-        </section>
-
-
+    
+            </section>
+    
+    
+        </div>
     </div>
+    
 
 
     <!-- PRICE POINT  -->
-    <div class="p-5 z-depth-1">
+    <div class="p-5 z-depth-1 orange lighten-4 view">
 
 
         <!--Section: Content-->
         <section class="text-center dark-grey-text container">
 
             <!-- Section heading -->
-            <h3 class="font-weight-bold pb-2">Choose License Type</h3>
+            <h3 class="font-weight-bold pb-2">Traning Finance</h3>
             <hr class="w-header my-4">
             <!-- Section description -->
-            <p class="text-muted w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
-                eum porro a pariatur veniam.</p>
+            <p class="text-muted w-responsive mx-auto mb-5">Our Categorized Traingin cost.</p>
 
             <!-- Grid row -->
             <div class="row">
