@@ -37,16 +37,16 @@ urlpatterns = [
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
-    path('adminpanel/', AdminIndex.as_view(), name='admin-panel'),
-    path('adminpanel/products', AdminProdcutList.as_view(), name='admin-product'),
-    path('adminpanel/orders', AdminOrderList.as_view(), name='admin-order'),
-    path('adminpanel/users', AdminUserList.as_view(), name='admin-user'),
-    path('adminpanel/applicants',
-         AdminApplicantList.as_view(), name='admin-applicant'),
-    path('adminpanel/courses', AdminCoursesList.as_view(), name='admin-course'),
-    path('adminpanel/blogs', AdminBlogList.as_view(), name='admin-blog'),
-    path('adminpanel/addproduct', addproduct, name='addproduct'),
-    path('adminpanel/saveproduct', saveproduct, name='saveproduct')
+    # path('adminpanel/', AdminIndex.as_view(), name='admin-panel'),
+    # path('adminpanel/products', AdminProdcutList.as_view(), name='admin-product'),
+    # path('adminpanel/orders', AdminOrderList.as_view(), name='admin-order'),
+    # path('adminpanel/users', AdminUserList.as_view(), name='admin-user'),
+    # path('adminpanel/applicants',
+    #      AdminApplicantList.as_view(), name='admin-applicant'),
+    # path('adminpanel/courses', AdminCoursesList.as_view(), name='admin-course'),
+    # path('adminpanel/blogs', AdminBlogList.as_view(), name='admin-blog'),
+    # path('adminpanel/addproduct', addproduct, name='addproduct'),
+    # path('adminpanel/saveproduct', saveproduct, name='saveproduct')
 
 ]
 
