@@ -67,6 +67,15 @@ class LandingView(TemplateView):
     template_name = "index.html"
 
 
+def addproduct(request):
+    data = ""
+    return render(request, "admin/addgood.html", {"data": data})
+
+
+def saveproduct(request):
+    pass
+
+
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         try:

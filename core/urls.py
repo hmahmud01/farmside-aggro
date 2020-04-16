@@ -17,7 +17,9 @@ from .views import (
     AdminUserList,
     AdminApplicantList,
     AdminCoursesList,
-    AdminBlogList
+    AdminBlogList,
+    addproduct,
+    saveproduct
 )
 
 app_name = 'core'
@@ -42,7 +44,9 @@ urlpatterns = [
     path('adminpanel/applicants',
          AdminApplicantList.as_view(), name='admin-applicant'),
     path('adminpanel/courses', AdminCoursesList.as_view(), name='admin-course'),
-    path('adminpanel/blogs', AdminBlogList.as_view(), name='admin-blog')
+    path('adminpanel/blogs', AdminBlogList.as_view(), name='admin-blog'),
+    path('adminpanel/addproduct', addproduct, name='addproduct'),
+    path('adminpanel/saveproduct', saveproduct, name='saveproduct')
 
 ]
 
