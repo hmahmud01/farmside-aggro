@@ -18,6 +18,7 @@ from .views import (
     AdminApplicantList,
     AdminCoursesList,
     AdminBlogList,
+    adminproductlist,
     addproduct,
     saveproduct
 )
@@ -38,14 +39,15 @@ urlpatterns = [
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
     path('panel/', AdminIndex.as_view(), name='panel-index'),
-    path('panel/products', AdminProdcutList.as_view(), name='panel-product'),
     path('panel/orders', AdminOrderList.as_view(), name='panel-order'),
     path('panel/users', AdminUserList.as_view(), name='panel-user'),
     path('panel/applicants',
          AdminApplicantList.as_view(), name='panel-applicant'),
     path('panel/courses', AdminCoursesList.as_view(), name='panel-course'),
     path('panel/blogs', AdminBlogList.as_view(), name='panel-blog'),
-    path('panel/addproduct', addproduct, name='addproduct')
+    path('panel/products', adminproductlist, name='panel-product'),
+    path('panel/addproduct', addproduct, name='addproduct'),
+    path('panel/saveproduct', saveproduct, name='saveproduct')
 ]
 
 # Previous paths noted here. just to remember the paths for updated one

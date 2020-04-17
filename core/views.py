@@ -43,13 +43,21 @@ class AdminProdcutList(TemplateView):
     template_name = "panel/products.html"
 
 
+def adminproductlist(request):
+    item = Item.objects.all()
+    return render(request, "panel/products.html", {'data': item})
+
+
 def addproduct(request):
     data = "product add"
     return render(request, "panel/addgood.html", {"data": data})
 
 
 def saveproduct(request):
-    pass
+    response = "product added"
+    print(request.POST)
+    return redirect("core:panel-product")
+    # return render("panel/products", {'data': response})
 
 
 class AdminOrderList(TemplateView):
