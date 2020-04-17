@@ -35,13 +35,50 @@ def is_valid_form(values):
     return valid
 
 
+class AdminIndex(TemplateView):
+    template_name = "panel/index.html"
+
+
+class AdminProdcutList(TemplateView):
+    template_name = "panel/products.html"
+
+
+def addproduct(request):
+    data = "product add"
+    return render(request, "panel/addgood.html", {"data": data})
+
+
+def saveproduct(request):
+    pass
+
+
+class AdminOrderList(TemplateView):
+    template_name = "panel/orders.html"
+
+
+class AdminUserList(TemplateView):
+    template_name = "panel/users.html"
+
+
+class AdminApplicantList(TemplateView):
+    template_name = "panel/applicants.html"
+
+
+class AdminCoursesList(TemplateView):
+    template_name = "panel/courses.html"
+
+
+class AdminBlogList(TemplateView):
+    template_name = "panel/blogs.html"
+
+
 class LandingView(TemplateView):
     template_name = "index.html"
 
 
-def addproduct(request):
-    data = ""
-    return render(request, "admin/addgood.html", {"data": data})
+# def addproduct(request):
+#     data = ""
+#     return render(request, "panel/addgood.html", {"data": data})
 
 
 def saveproduct(request):
