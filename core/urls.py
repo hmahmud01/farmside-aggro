@@ -10,16 +10,7 @@ from .views import (
     remove_single_item_from_cart,
     PaymentView,
     AddCouponView,
-    RequestRefundView,
-    AdminIndex,
-    AdminProdcutList,
-    AdminOrderList,
-    AdminUserList,
-    AdminApplicantList,
-    AdminCoursesList,
-    AdminBlogList,
-    addproduct,
-    saveproduct
+    RequestRefundView
 )
 
 app_name = 'core'
@@ -36,18 +27,7 @@ urlpatterns = [
     path('remove-item-from-cart/<slug>/', remove_single_item_from_cart,
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
-    path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
-    # path('adminpanel/', AdminIndex.as_view(), name='admin-panel'),
-    # path('adminpanel/products', AdminProdcutList.as_view(), name='admin-product'),
-    # path('adminpanel/orders', AdminOrderList.as_view(), name='admin-order'),
-    # path('adminpanel/users', AdminUserList.as_view(), name='admin-user'),
-    # path('adminpanel/applicants',
-    #      AdminApplicantList.as_view(), name='admin-applicant'),
-    # path('adminpanel/courses', AdminCoursesList.as_view(), name='admin-course'),
-    # path('adminpanel/blogs', AdminBlogList.as_view(), name='admin-blog'),
-    # path('adminpanel/addproduct', addproduct, name='addproduct'),
-    # path('adminpanel/saveproduct', saveproduct, name='saveproduct')
-
+    path('request-refund/', RequestRefundView.as_view(), name='request-refund')
 ]
 
 # Previous paths noted here. just to remember the paths for updated one

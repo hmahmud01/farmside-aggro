@@ -35,34 +35,6 @@ def is_valid_form(values):
     return valid
 
 
-class AdminIndex(TemplateView):
-    template_name = "admin/index.html"
-
-
-class AdminProdcutList(TemplateView):
-    template_name = "admin/products.html"
-
-
-class AdminOrderList(TemplateView):
-    template_name = "admin/orders.html"
-
-
-class AdminUserList(TemplateView):
-    template_name = "admin/users.html"
-
-
-class AdminApplicantList(TemplateView):
-    template_name = "admin/applicants.html"
-
-
-class AdminCoursesList(TemplateView):
-    template_name = "admin/courses.html"
-
-
-class AdminBlogList(TemplateView):
-    template_name = "admin/blogs.html"
-
-
 class LandingView(TemplateView):
     template_name = "index.html"
 
