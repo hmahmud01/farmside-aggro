@@ -55,17 +55,47 @@ def addproduct(request):
 
 def saveproduct(request):
     response = "product added"
-    print(request.POST)
+
+    post_data = request.POST
+    file = request.FILES
+
+    product = Item(
+        title=post_data['title'],
+        price=post_data['price'],
+        discount_price=post_data['discount_price'],
+        category=post_data['category'],
+        label=post_data['label'],
+        slug=post_data['slug'],
+        description=post_data['description'],
+        image=file['image']
+    )
+    product.save()
     return redirect("core:panel-product")
     # return render("panel/products", {'data': response})
+
+
+def deleteproduct(request, pid):
+    instance = Item.objects.get(id=pid)
+    instance.delete()
+    return redirect("core:panel-product")
 
 
 class AdminOrderList(TemplateView):
     template_name = "panel/orders.html"
 
 
+def adminorderlist(request):
+    orders = Order.objects.all()
+    return render(request, "panel/orders.html", {'data': orders})
+
+
 class AdminUserList(TemplateView):
     template_name = "panel/users.html"
+
+
+def adminuserlist(request):
+    users = UserProfile.objects.all()
+    return render(request, "panel/users.html", {"data": users})
 
 
 class AdminApplicantList(TemplateView):
@@ -82,15 +112,6 @@ class AdminBlogList(TemplateView):
 
 class LandingView(TemplateView):
     template_name = "index.html"
-
-
-# def addproduct(request):
-#     data = ""
-#     return render(request, "panel/addgood.html", {"data": data})
-
-
-def saveproduct(request):
-    pass
 
 
 class CheckoutView(View):

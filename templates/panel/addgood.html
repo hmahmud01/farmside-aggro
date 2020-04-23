@@ -10,35 +10,55 @@
     </div>
 
     <div class="pt-5 pb-5">
-        <form class="text-center border border-light p-5" method="POST" action="/panel/saveproduct">{% csrf_token %}
+        <form class="text-center border border-light p-5" method="POST" action="/panel/saveproduct" enctype="multipart/form-data">{% csrf_token %}
 
             <p class="h4 mb-4">Add Your Product</p>
 
-            <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
-            <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+            <input type="text" id="title" name="title" class="form-control mb-4" placeholder="Product Name">
 
-            <label>Subject</label>
-            <select class="browser-default custom-select mb-4">
-                <option value="" disabled>Choose option</option>
-                <option value="1" selected>Feedback</option>
-                <option value="2">Report a bug</option>
-                <option value="3">Feature request</option>
-                <option value="4">Feature request</option>
+            <input type="number" id="price" name="price" class="form-control mb-4" placeholder="Product Price">
+
+            <input type="number" id="discount_price" name="discount_price" class="form-control mb-4" placeholder="Product Discount Price">
+            
+            <select name="category" class="browser-default custom-select mb-4">
+                <option value="category not selected" selected>Category</option>
+                <option value="Milk">Milk</option>
+                <option value="Cow">Cow</option>
+                <option value="Meat">Meat</option>
             </select>
 
+            <select name="label" class="browser-default custom-select mb-4">
+                <option value="category not selected" selected>label</option>
+                <option value="primary">Available</option>
+                <option value="secondary">Few Left</option>
+                <option value="danger">Not Available</option>
+            </select>
+
+            <input type="text" id="slug" name="slug" class="form-control mb-4" placeholder="Product Slug">
+
             <div class="form-group">
-                <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"
-                    placeholder="Message"></textarea>
+                <textarea class="form-control rounded-0" id="description" name="description" rows="3"
+                    placeholder="Description"></textarea>
             </div>
 
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Image">Upload Image</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="image" name="image">
+                  <label class="custom-file-label" for="image">Choose file</label>
+                </div>
+              </div>
+
             <div class="custom-control custom-checkbox mb-4">
-                <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-                <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+                <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">                
             </div>
 
             <!-- Send button -->
-            <button class="btn btn-info btn-block" type="submit">Send</button </form>
+            <button class="btn btn-info btn-block" type="submit">Send</button>
+          </form>
     </div>
-
+    
 </div>
 {% endblock %}

@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import (
     LandingView,
     ItemDetailView,
@@ -20,7 +22,10 @@ from .views import (
     AdminBlogList,
     adminproductlist,
     addproduct,
-    saveproduct
+    saveproduct,
+    deleteproduct,
+    adminorderlist,
+    adminuserlist
 )
 
 app_name = 'core'
@@ -39,15 +44,17 @@ urlpatterns = [
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
     path('panel/', AdminIndex.as_view(), name='panel-index'),
-    path('panel/orders', AdminOrderList.as_view(), name='panel-order'),
-    path('panel/users', AdminUserList.as_view(), name='panel-user'),
+    path('panel/orders', adminorderlist, name='panel-order'),
+    path('panel/users', adminuserlist, name='panel-user'),
     path('panel/applicants',
          AdminApplicantList.as_view(), name='panel-applicant'),
     path('panel/courses', AdminCoursesList.as_view(), name='panel-course'),
     path('panel/blogs', AdminBlogList.as_view(), name='panel-blog'),
     path('panel/products', adminproductlist, name='panel-product'),
     path('panel/addproduct', addproduct, name='addproduct'),
-    path('panel/saveproduct', saveproduct, name='saveproduct')
+    path('panel/saveproduct', saveproduct, name='saveproduct'),
+    path('panel/deleteproduct/<int:pid>/',
+         deleteproduct, name='deleteproduct')
 ]
 
 # Previous paths noted here. just to remember the paths for updated one

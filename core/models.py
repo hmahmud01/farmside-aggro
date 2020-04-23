@@ -42,7 +42,7 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='uploads', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -61,6 +61,13 @@ class Item(models.Model):
         return reverse("core:remove-from-cart", kwargs={
             'slug': self.slug
         })
+
+
+class ItemImages(models.Model):
+    item = models.ForeignKey(
+        Item, related_name='this_item', on_delete=models.CASCADE)
+    images = models.FileField(
+        'item_files', upload_to='images', blank=True, null=True)
 
 
 class OrderItem(models.Model):
