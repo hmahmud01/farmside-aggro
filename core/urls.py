@@ -25,7 +25,8 @@ from .views import (
     saveproduct,
     deleteproduct,
     adminorderlist,
-    adminuserlist
+    adminuserlist,
+    product_detail
 )
 
 app_name = 'core'
@@ -33,6 +34,7 @@ app_name = 'core'
 urlpatterns = [
     path('', LandingView.as_view(), name='landing'),
     path('products/', HomeView.as_view(), name='home'),
+    path('detail/', product_detail, name='detail'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('product/<slug>/', ItemDetailView.as_view(), name='product'),

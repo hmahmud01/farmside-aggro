@@ -444,6 +444,12 @@ class OrderSummaryView(LoginRequiredMixin, View):
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product.html"
+    # template_name = "product_detail.html"
+
+
+def product_detail(request):
+    item = "product"
+    return render(request, "product_detail.html", {'data': item})
 
 
 @login_required
