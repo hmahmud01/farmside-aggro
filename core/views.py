@@ -80,6 +80,11 @@ def deleteproduct(request, pid):
     return redirect("core:panel-product")
 
 
+def product_detail(request, pid):
+    product = Item.objects.get(id=pid)
+    return render(request, "product_detail.html", {'data': product})
+
+
 class AdminOrderList(TemplateView):
     template_name = "panel/orders.html"
 
@@ -445,11 +450,6 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = "product.html"
     # template_name = "product_detail.html"
-
-
-def product_detail(request):
-    item = "product"
-    return render(request, "product_detail.html", {'data': item})
 
 
 @login_required

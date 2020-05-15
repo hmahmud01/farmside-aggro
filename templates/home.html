@@ -22,7 +22,11 @@
               {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
                 class="card-img-top" {% endcomment %} <img src="{{ item.image.url }}"
                 class="prod-img-size card-img-top">
-              <a href="{{ item.get_absolute_url }}">
+
+              <!-- <a href="{{ item.get_absolute_url }}">
+                <div class="mask rgba-white-slight"></div>
+              </a> -->
+              <a href="{% url 'core:detail' item.id %}">
                 <div class="mask rgba-white-slight"></div>
               </a>
             </div>
