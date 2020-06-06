@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView, View, TemplateView
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, ItemImages, ItemVideos
 
 import random
 import string
@@ -59,6 +59,11 @@ def saveproduct(request):
     post_data = request.POST
     file = request.FILES
 
+    print("printing request data")
+    print(post_data)
+    print("printing file data")
+    print(file)
+
     product = Item(
         title=post_data['title'],
         price=post_data['price'],
@@ -69,7 +74,23 @@ def saveproduct(request):
         description=post_data['description'],
         image=file['image']
     )
+
     product.save()
+
+    for itemimg in file.getlist('images'):
+        img = ItemImages(
+            item=product,
+            images=itemimg
+        )
+        img.save()
+
+    video = ItemVideos(
+        item=product,
+        videos=file['video']
+    )
+
+    video.save()
+
     return redirect("core:panel-product")
     # return render("panel/products", {'data': response})
 
@@ -81,8 +102,23 @@ def deleteproduct(request, pid):
 
 
 def product_detail(request, pid):
+    print(pid)
     product = Item.objects.get(id=pid)
-    return render(request, "product_detail.html", {'data': product})
+    images = ItemImages.objects.filter(item__id__contains=pid)
+    print(images)
+    videos = ItemVideos.objects.get(item_id=pid)
+    print(videos)
+    return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
+    # try:
+    #     product = Item.objects.get(id=pid)
+    #     images = ItemImages.objects.filter(item__id__contains=pid)
+    #     print(images)
+    #     videos = ItemVideos.object.get(id=pid)
+    #     print(videos)
+    #     return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
+    # except Exception:
+    #     product = Item.objects.get(id=pid)
+    #     return render(request, "product_detail.html", {'data': product})
 
 
 class AdminOrderList(TemplateView):
