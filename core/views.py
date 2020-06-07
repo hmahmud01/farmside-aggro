@@ -10,6 +10,8 @@ from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, ItemImages, ItemVideos
 
+from django.contrib.auth.models import User
+
 import random
 import string
 import stripe
@@ -137,6 +139,14 @@ class AdminUserList(TemplateView):
 def adminuserlist(request):
     users = UserProfile.objects.all()
     return render(request, "panel/users.html", {"data": users})
+
+
+def deleteuser(request, pid):
+    profile = UserProfile.objects.get(user_id=pid)
+    user = User.objects.get(id=pid)
+    profile.delete()
+    user.delete()
+    return redirect("core:panel-user")
 
 
 class AdminApplicantList(TemplateView):
