@@ -4,11 +4,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, View
+from django.views.generic import ListView, DetailView, View, TemplateView
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, ItemImages, ItemVideos
 
 import random
 import string
@@ -33,6 +33,126 @@ def is_valid_form(values):
         if field == '':
             valid = False
     return valid
+
+
+class AdminIndex(TemplateView):
+    template_name = "panel/index.html"
+
+
+class AdminProdcutList(TemplateView):
+    template_name = "panel/products.html"
+
+
+def adminproductlist(request):
+    item = Item.objects.all()
+    return render(request, "panel/products.html", {'data': item})
+
+
+def addproduct(request):
+    data = "product add"
+    return render(request, "panel/addgood.html", {"data": data})
+
+
+def saveproduct(request):
+    response = "product added"
+
+    post_data = request.POST
+    file = request.FILES
+
+    print("printing request data")
+    print(post_data)
+    print("printing file data")
+    print(file)
+
+    product = Item(
+        title=post_data['title'],
+        price=post_data['price'],
+        discount_price=post_data['discount_price'],
+        category=post_data['category'],
+        label=post_data['label'],
+        slug=post_data['slug'],
+        description=post_data['description'],
+        image=file['image']
+    )
+
+    product.save()
+
+    for itemimg in file.getlist('images'):
+        img = ItemImages(
+            item=product,
+            images=itemimg
+        )
+        img.save()
+
+    video = ItemVideos(
+        item=product,
+        videos=file['video']
+    )
+
+    video.save()
+
+    return redirect("core:panel-product")
+    # return render("panel/products", {'data': response})
+
+
+def deleteproduct(request, pid):
+    instance = Item.objects.get(id=pid)
+    instance.delete()
+    return redirect("core:panel-product")
+
+
+def product_detail(request, pid):
+    print(pid)
+    product = Item.objects.get(id=pid)
+    images = ItemImages.objects.filter(item__id__contains=pid)
+    print(images)
+    videos = ItemVideos.objects.get(item_id=pid)
+    print(videos)
+    return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
+    # try:
+    #     product = Item.objects.get(id=pid)
+    #     images = ItemImages.objects.filter(item__id__contains=pid)
+    #     print(images)
+    #     videos = ItemVideos.object.get(id=pid)
+    #     print(videos)
+    #     return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
+    # except Exception:
+    #     product = Item.objects.get(id=pid)
+    #     return render(request, "product_detail.html", {'data': product})
+
+
+class AdminOrderList(TemplateView):
+    template_name = "panel/orders.html"
+
+
+def adminorderlist(request):
+    orders = Order.objects.all()
+    return render(request, "panel/orders.html", {'data': orders})
+
+
+class AdminUserList(TemplateView):
+    template_name = "panel/users.html"
+
+
+def adminuserlist(request):
+    users = UserProfile.objects.all()
+    return render(request, "panel/users.html", {"data": users})
+
+
+class AdminApplicantList(TemplateView):
+    template_name = "panel/applicants.html"
+
+
+class AdminCoursesList(TemplateView):
+    template_name = "panel/courses.html"
+
+
+class AdminBlogList(TemplateView):
+    template_name = "panel/blogs.html"
+
+
+class LandingView(TemplateView):
+    template_name = "index.html"
 
 
 class CheckoutView(View):
@@ -365,6 +485,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product.html"
+    # template_name = "product_detail.html"
 
 
 @login_required

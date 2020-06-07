@@ -1,0 +1,86 @@
+{% extends "panel/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <h2 class='mb-3'>Add Products</h2>
+    <div class="d-flex justify-content-between">
+        <p>Please Follow the form to fill your product</p>
+    </div>
+
+    <div class="pt-5 pb-5">
+        <form class="text-center border border-light p-5" method="POST" action="/panel/saveproduct"
+            enctype="multipart/form-data">{% csrf_token %}
+
+            <p class="h4 mb-4">Add Your Product</p>
+
+            <input type="text" id="title" name="title" class="form-control mb-4" placeholder="Product Name">
+
+            <input type="number" id="price" name="price" class="form-control mb-4" placeholder="Product Price">
+
+            <input type="number" id="discount_price" name="discount_price" class="form-control mb-4"
+                placeholder="Product Discount Price">
+
+            <select name="category" class="browser-default custom-select mb-4">
+                <option value="category not selected" selected>Category</option>
+                <option value="Milk">Milk</option>
+                <option value="Cow">Cow</option>
+                <option value="Meat">Meat</option>
+            </select>
+
+            <select name="label" class="browser-default custom-select mb-4">
+                <option value="category not selected" selected>label</option>
+                <option value="primary">Available</option>
+                <option value="secondary">Few Left</option>
+                <option value="danger">Not Available</option>
+            </select>
+
+            <input type="text" id="slug" name="slug" class="form-control mb-4" placeholder="Product Slug">
+
+            <div class="form-group">
+                <textarea class="form-control rounded-0" id="description" name="description" rows="3"
+                    placeholder="Description"></textarea>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="Image">Upload Thumbnail Image</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label" for="image">Choose file</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="Image">Upload Preview Images</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="images" name="images" multiple>
+                    <label class="custom-file-label" for="images">Choose file</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="Image">Upload Video</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="video" name="video">
+                    <label class="custom-file-label" for="video">Choose file</label>
+                </div>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-4">
+                <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+            </div>
+
+            <!-- Send button -->
+            <button class="btn btn-info btn-block" type="submit">Send</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
