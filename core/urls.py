@@ -26,6 +26,7 @@ from .views import (
     deleteproduct,
     adminorderlist,
     adminuserlist,
+    deleteuser,
     product_detail
 )
 
@@ -48,6 +49,8 @@ urlpatterns = [
     path('panel/', AdminIndex.as_view(), name='panel-index'),
     path('panel/orders', adminorderlist, name='panel-order'),
     path('panel/users', adminuserlist, name='panel-user'),
+    path('panel/deleteuser/<int:pid>/',
+         deleteuser, name='deleteuser'),
     path('panel/applicants',
          AdminApplicantList.as_view(), name='panel-applicant'),
     path('panel/courses', AdminCoursesList.as_view(), name='panel-course'),
