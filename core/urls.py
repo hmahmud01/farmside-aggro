@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import (
     LandingView,
     ItemDetailView,
@@ -17,7 +19,14 @@ from .views import (
     AdminUserList,
     AdminApplicantList,
     AdminCoursesList,
-    AdminBlogList
+    AdminBlogList,
+    adminproductlist,
+    addproduct,
+    saveproduct,
+    deleteproduct,
+    adminorderlist,
+    adminuserlist,
+    product_detail
 )
 
 app_name = 'core'
@@ -25,6 +34,7 @@ app_name = 'core'
 urlpatterns = [
     path('', LandingView.as_view(), name='landing'),
     path('products/', HomeView.as_view(), name='home'),
+    path('detail/<int:pid>/', product_detail, name='detail'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('product/<slug>/', ItemDetailView.as_view(), name='product'),
@@ -35,15 +45,18 @@ urlpatterns = [
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
-    path('adminpanel/', AdminIndex.as_view(), name='admin-panel'),
-    path('adminpanel/products', AdminProdcutList.as_view(), name='admin-product'),
-    path('adminpanel/orders', AdminOrderList.as_view(), name='admin-order'),
-    path('adminpanel/users', AdminUserList.as_view(), name='admin-user'),
-    path('adminpanel/applicants',
-         AdminApplicantList.as_view(), name='admin-applicant'),
-    path('adminpanel/courses', AdminCoursesList.as_view(), name='admin-course'),
-    path('adminpanel/blogs', AdminBlogList.as_view(), name='admin-blog')
-
+    path('panel/', AdminIndex.as_view(), name='panel-index'),
+    path('panel/orders', adminorderlist, name='panel-order'),
+    path('panel/users', adminuserlist, name='panel-user'),
+    path('panel/applicants',
+         AdminApplicantList.as_view(), name='panel-applicant'),
+    path('panel/courses', AdminCoursesList.as_view(), name='panel-course'),
+    path('panel/blogs', AdminBlogList.as_view(), name='panel-blog'),
+    path('panel/products', adminproductlist, name='panel-product'),
+    path('panel/addproduct', addproduct, name='addproduct'),
+    path('panel/saveproduct', saveproduct, name='saveproduct'),
+    path('panel/deleteproduct/<int:pid>/',
+         deleteproduct, name='deleteproduct')
 ]
 
 # Previous paths noted here. just to remember the paths for updated one

@@ -1,0 +1,51 @@
+{% extends "panel/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <h2 class='mb-3'>User List</h2>
+    <div class="d-flex justify-content-between">
+        <p>All The Users Listed Here</p>
+        <div>
+            <p>Users are listed with both <span class="badge badge-secondary">Active</span> and <span
+                    class="badge badge-danger">Inactive</span> status</p>
+        </div>
+    </div>
+
+    <table id="dtBasicExample" class="table" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">User Name
+                </th>
+                <th class="th-sm">Status
+                </th>
+                <th class="th-sm">User Type
+                </th>
+                <th class="th-sm">Date Joined
+                </th>
+                <th class="th-sm">Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in data %}
+            <tr>
+                <td>{{ user.user.username }}</td>
+                <td>{{ user.user.is_active }}</td>
+                <td>{{ user.user.is_staff }}</td>
+                <td>{{ user.user.date_joined }}</td>
+                <td><a href="#" class="btn btn-sm btn-rounded btn-primary">Detail</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    $("#dtBasicExample").DataTable()
+</script>
+{% endblock %}

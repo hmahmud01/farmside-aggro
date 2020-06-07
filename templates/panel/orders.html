@@ -1,0 +1,55 @@
+{% extends "panel/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <h2 class='mb-3'>Order List</h2>
+    <div class="d-flex justify-content-between">
+        <p>All The Orders Listed Here</p>
+        <div>
+            <p>Orders are listed with both <span class="badge badge-secondary">Active</span> and <span
+                    class="badge badge-danger">Inactive</span> status</p>
+        </div>
+    </div>
+
+    <table id="dtBasicExample" class="table" width="100%">
+        <thead>
+            <tr>
+                <th class="th-sm">Ordered by
+                </th>
+                <th class="th-sm">Date ordered
+                </th>
+                <th class="th-sm">Recieved?
+                </th>
+                <th class="th-sm">Total cost
+                </th>
+                <th class="th-sm">Status
+                </th>
+                <th class="th-sm">Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in data %}
+            <tr>
+                <td>{{ order.user.username }}</td>
+                <td>{{ order.ordered_date }}</td>
+                <td>{{ order.received }}</td>
+                <td>{{ order.get_total }}</td>
+                <td><span class="badge badge-secondary">Active</span></td>
+                <td><a href="#" class="btn btn-sm btn-rounded btn-danger">Detail</a></td>
+            </tr>
+            {% endfor %}
+        
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    $("#dtBasicExample").DataTable()
+</script>
+{% endblock %}
