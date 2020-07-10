@@ -23,6 +23,8 @@ from .views import (
     adminproductlist,
     addproduct,
     saveproduct,
+    updateproduct,
+    updateproductdata,
     deleteproduct,
     adminorderlist,
     adminuserlist,
@@ -58,6 +60,9 @@ urlpatterns = [
     path('panel/products', adminproductlist, name='panel-product'),
     path('panel/addproduct', addproduct, name='addproduct'),
     path('panel/saveproduct', saveproduct, name='saveproduct'),
+    path('panel/updateproduct/<int:pid>/', updateproduct, name='updateproduct'),
+    path('panel/udpateproductdata/<int:pid>',
+         updateproductdata, name='updateproductdata'),
     path('panel/deleteproduct/<int:pid>/',
          deleteproduct, name='deleteproduct')
 ]

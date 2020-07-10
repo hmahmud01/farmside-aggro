@@ -39,7 +39,7 @@
         <td>{{ item.label }}</td>
         <td>{{ item.category }}</td>
         <td>
-          <a href="#" class="btn btn-sm btn-rounded btn-warning">Edit</a>
+          <a href="{% url 'core:updateproduct' item.id %}" class="btn btn-sm btn-rounded btn-warning">Edit</a>
           <a href="{% url 'core:deleteproduct' item.id %}" class="btn btn-sm btn-rounded btn-warning">Delete</a>
         </td>
 

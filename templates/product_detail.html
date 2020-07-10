@@ -51,7 +51,7 @@
           </div>
           <!--/.Carousel Wrapper-->
 
-          <div class="row mb-4">
+          <!-- <div class="row mb-4">
             <div class="col-md-12">
               <div id="mdb-lightbox-ui"></div>
               <div class="mdb-lightbox no-margin">
@@ -59,31 +59,9 @@
                   <source src="/media_root/{{ video.videos }}" type='video/mp4'>
                   Your browser does not support the video tag.
                 </video>
-                <!-- <figure class="col-md-4">
-                  <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
-                    data-size="1600x1067">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
-                      class="img-fluid">
-                  </a>
-                </figure>
-                <figure class="col-md-4">
-                  <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
-                    data-size="1600x1067">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
-                      class="img-fluid">
-                  </a>
-                </figure>
-                <figure class="col-md-4">
-                  <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
-                    data-size="1600x1067">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
-                      class="img-fluid">
-                  </a>
-                </figure> -->
               </div>
             </div>
-          </div>
-
+          </div> -->
         </div>
 
         <div class="col-lg-5 text-center text-md-left">
@@ -105,7 +83,7 @@
             </span>
           </h3> -->
 
-          <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
+          <!-- <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
             {% if data.discount_price %}
             <span class="red-text font-weight-bold">
               <strong>৳{{ data.price }}</strong>
@@ -120,7 +98,7 @@
               <strong>৳{{ data.price }}</strong>
             </span>
             {% endif %}
-          </h3>
+          </h3> -->
 
 
 
@@ -142,10 +120,10 @@
             <div class="mt-5">
               <div class="row mt-3 mb-4">
                 <div class="col-md-12 text-center text-md-left text-md-right">
-                  <a href="{{ data.get_add_to_cart_url }}" class="btn btn-primary btn-rounded">
+                  <a href="{{ data.get_add_to_cart_url }}" class="btn btn-primary btn-rounded disabled">
                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart
                   </a>
-                  <a href="{{ data.get_remove_from_cart_url }}" class="btn btn-danger btn-rounded">
+                  <a href="{{ data.get_remove_from_cart_url }}" class="btn btn-danger btn-rounded disabled">
                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Remove from cart
                   </a>
                   <!-- <button class="btn btn-primary btn-rounded">
@@ -158,6 +136,49 @@
 
         </div>
       </div>
+      <div class="container-fluid mt-3 mb-5">
+
+        <!-- Section -->
+        <section class="bg-primary z-depth-1">
+
+          <!-- Modal -->
+          <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                  <iframe id="player" class="embed-responsive-item" src="/media_root/{{ video.videos }}"
+                    type='video/mp4' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row no-gutters">
+
+            <div class="col-lg-6 order-md-2">
+              <div class="view">
+                <img class="img-fluid" src="/media_root/{{ data.image }}" alt="Video title">
+                <div class="mask flex-center rgba-black-light">
+                  <a id="play" class="btn-floating btn-danger btn-lg" data-toggle="modal" data-target="#modal1"><i
+                      class="fas fa-play"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mx-auto d-flex align-items-center text-white">
+              <div class="px-4 py-4 py-lg-0">
+                <h3 class="font-weight-normal mb-4">{{ data.title }}</h3>
+                <p class="mb-0">{{ data.description }}</p>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+        <!-- Section -->
+
+      </div>
 
     </section>
     <!--Section: Content-->
@@ -167,3 +188,17 @@
 </main>
 
 {% endblock content %}
+{% block extra_scripts %}
+<script>
+  $('#play').on('click', function (e) {
+    e.preventDefault();
+    $("#player")[0].src += "?autoplay=1";
+    $('#player').show();
+    $('#video-cover').hide();
+  })
+  $('#modal1').on('hidden.bs.modal', function (e) {
+    $('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
+  });
+</script>
+
+{% endblock %}
