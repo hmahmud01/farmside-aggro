@@ -4,23 +4,25 @@
 
 {% block content %}
 <div class="container pt-5 mt-5">
-    <h2 class='mb-3'>Add Products</h2>
+    <h2 class='mb-3'>Update Product</h2>
     <div class="d-flex justify-content-between">
-        <p>Please Follow the form to fill your product</p>
+        <p>Please Follow the form to update {{ data.title }}</p>
     </div>
 
     <div class="pt-5 pb-5">
-        <form class="text-center border border-light p-5" method="POST" action="/panel/saveproduct"
-            enctype="multipart/form-data">{% csrf_token %}
+        <form class="text-center border border-light p-5" method="POST"
+            action="{% url 'core:updateproductdata' data.id %}" enctype="multipart/form-data">{% csrf_token %}
 
-            <p class="h4 mb-4">Add Your Product</p>
+            <p class="h4 mb-4">Update Your Product</p>
 
-            <input type="text" id="title" name="title" class="form-control mb-4" placeholder="Product Name">
+            <input type="text" id="title" name="title" class="form-control mb-4" placeholder="Product Name"
+                value="{{ data.title }}">
 
-            <input type="number" id="price" name="price" class="form-control mb-4" placeholder="Product Price">
+            <input type="number" id="price" name="price" class="form-control mb-4" placeholder="Product Price"
+                value="{{ data.price }}">
 
             <input type="number" id="discount_price" name="discount_price" class="form-control mb-4"
-                placeholder="Product Discount Price">
+                placeholder="Product Discount Price" value="{{ data.discount_price }}">
 
             <select name="category" class="browser-default custom-select mb-4">
                 <option value="category not selected" selected>Category</option>
@@ -28,6 +30,7 @@
                 <option value="Cow">Cow</option>
                 <option value="Meat">Meat</option>
             </select>
+            <p>Selected : {{ data.category }}</p>
 
             <select name="label" class="browser-default custom-select mb-4">
                 <option value="category not selected" selected>label</option>
@@ -36,11 +39,14 @@
                 <option value="danger">Not Available</option>
             </select>
 
-            <input type="text" id="slug" name="slug" class="form-control mb-4" placeholder="Product Slug">
+            <p>Selected : {{ data.label }}</p>
+
+            <input type="text" id="slug" name="slug" class="form-control mb-4" placeholder="Product Slug"
+                value="{{ data.slug }}">
 
             <div class="form-group">
                 <textarea class="form-control rounded-0" id="description" name="description" rows="3"
-                    placeholder="Description"></textarea>
+                    placeholder="Description" value="{{ data.description }}"></textarea>
             </div>
 
             <div class="input-group">
@@ -48,7 +54,7 @@
                     <span class="input-group-text" id="Image">Upload Thumbnail Image</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <input type="file" class="custom-file-input" id="image" name="image" value="{{ data.image }}">
                     <label class="custom-file-label" for="image">Choose file</label>
                 </div>
             </div>
@@ -59,7 +65,7 @@
                 </div>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="images" name="images" multiple>
-                    <label class="custom-file-label" for="images">Choose file</label>
+                    <label class="custom-file-label" for="images">{{ images }}</label>
                 </div>
             </div>
 
@@ -69,7 +75,7 @@
                 </div>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="video" name="video">
-                    <label class="custom-file-label" for="video">Choose file</label>
+                    <label class="custom-file-label" for="video">{{ videos }}</label>
                 </div>
             </div>
 

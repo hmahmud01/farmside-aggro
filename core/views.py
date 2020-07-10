@@ -66,35 +66,95 @@ def saveproduct(request):
     print("printing file data")
     print(file)
 
-    product = Item(
-        title=post_data['title'],
-        price=post_data['price'],
-        discount_price=post_data['discount_price'],
-        category=post_data['category'],
-        label=post_data['label'],
-        slug=post_data['slug'],
-        description=post_data['description'],
-        image=file['image']
-    )
+    if 'image' in file:
+        product = Item(
+            title=post_data['title'],
+            price=post_data['price'],
+            discount_price=post_data['discount_price'],
+            category=post_data['category'],
+            label=post_data['label'],
+            slug=post_data['slug'],
+            description=post_data['description'],
+            image=file['image']
+        )
+    else:
+        product = Item(
+            title=post_data['title'],
+            price=post_data['price'],
+            discount_price=post_data['discount_price'],
+            category=post_data['category'],
+            label=post_data['label'],
+            slug=post_data['slug'],
+            description=post_data['description'],
+            image='/static/img/contents/logo.png'
+        )
 
     product.save()
 
-    for itemimg in file.getlist('images'):
-        img = ItemImages(
+    if 'images' in file:
+        for itemimg in file.getlist('images'):
+            img = ItemImages(
+                item=product,
+                images=itemimg
+            )
+            img.save()
+
+    if 'video' in file:
+        video = ItemVideos(
             item=product,
-            images=itemimg
+            videos=file['video']
         )
-        img.save()
-
-    video = ItemVideos(
-        item=product,
-        videos=file['video']
-    )
-
-    video.save()
+        video.save()
 
     return redirect("core:panel-product")
     # return render("panel/products", {'data': response})
+
+
+def updateproduct(request, pid):
+    product = Item.objects.get(id=pid)
+    images = ItemImages.objects.filter(item__id__contains=pid)
+    if images:
+        imagesStat = 'Exists'
+    else:
+        imagesStat = 'Does Not Exist'
+    videos = ItemVideos.objects.filter(item__id__contains=pid)
+    if videos:
+        videoStat = 'Exists'
+    else:
+        videoStat = 'Does Not Exist'
+    return render(request, "panel/updategood.html", {"data": product, "images": imagesStat, "videos": videoStat})
+
+
+def updateproductdata(request, pid):
+    product = Item.objects.get(id=pid)
+    post_data = request.POST
+    file = request.FILES
+
+    product.title = post_data['title']
+    product.price = post_data['price']
+    product.discount_price = post_data['discount_price']
+    product.description = post_data['description']
+    if 'image' in file:
+        product.image = file['image']
+
+    product.save()
+
+    if 'images' in file:
+        for itemimg in file.getlist('images'):
+            img = ItemImages(
+                item=product,
+                images=itemimg
+            )
+            img.save()
+
+    if 'video' in file:
+        video = ItemVideos(
+            item=product,
+            videos=file['video']
+        )
+        video.save()
+
+    return redirect("core:panel-product")
 
 
 def deleteproduct(request, pid):
@@ -105,22 +165,20 @@ def deleteproduct(request, pid):
 
 def product_detail(request, pid):
     print(pid)
-    product = Item.objects.get(id=pid)
-    images = ItemImages.objects.filter(item__id__contains=pid)
-    print(images)
-    videos = ItemVideos.objects.get(item_id=pid)
-    print(videos)
-    return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
-    # try:
-    #     product = Item.objects.get(id=pid)
-    #     images = ItemImages.objects.filter(item__id__contains=pid)
-    #     print(images)
-    #     videos = ItemVideos.object.get(id=pid)
-    #     print(videos)
-    #     return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
-    # except Exception:
-    #     product = Item.objects.get(id=pid)
-    #     return render(request, "product_detail.html", {'data': product})
+    # product = Item.objects.get(id=pid)
+    # images = ItemImages.objects.filter(item__id__contains=pid)
+    # videos = ItemVideos.objects.get(item_id=pid)
+    # return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
+    try:
+        product = Item.objects.get(id=pid)
+        images = ItemImages.objects.filter(item__id__contains=pid)
+        videos = ItemVideos.objects.get(item_id=pid)
+        return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
+    except Exception:
+        images = []
+        videos = ''
+        product = Item.objects.get(id=pid)
+        return render(request, "product_detail.html", {'data': product, 'images': images, 'video': videos})
 
 
 class AdminOrderList(TemplateView):
