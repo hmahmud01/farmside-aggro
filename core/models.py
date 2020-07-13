@@ -62,6 +62,16 @@ class Item(models.Model):
             'slug': self.slug
         })
 
+    def add_to_cart(self):
+        return reverse("core:add-to-cart", kwargs={
+            'id': self.id
+        })
+
+    def remove_from_cart(self):
+        return reverse("core:remove-from-cart", kwargs={
+            'id': self.id
+        })
+
 
 class ItemImages(models.Model):
     item = models.ForeignKey(
