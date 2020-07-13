@@ -83,14 +83,14 @@
             </span>
           </h3> -->
 
-          <!-- <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
+          <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
             {% if data.discount_price %}
             <span class="red-text font-weight-bold">
-              <strong>৳{{ data.price }}</strong>
+              <strong>৳{{ data.discount_price }}</strong>
             </span>
             <span class="grey-text">
               <small>
-                <s>৳{{ data.discount_price }}</s>
+                <s>৳{{ data.price }}</s>
               </small>
             </span>
             {% else %}
@@ -98,7 +98,7 @@
               <strong>৳{{ data.price }}</strong>
             </span>
             {% endif %}
-          </h3> -->
+          </h3>
 
 
 
@@ -120,10 +120,10 @@
             <div class="mt-5">
               <div class="row mt-3 mb-4">
                 <div class="col-md-12 text-center text-md-left text-md-right">
-                  <a href="{{ data.get_add_to_cart_url }}" class="btn btn-primary btn-rounded disabled">
+                  <a href="{{ data.add_to_cart }}" class="btn btn-primary btn-rounded">
                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart
                   </a>
-                  <a href="{{ data.get_remove_from_cart_url }}" class="btn btn-danger btn-rounded disabled">
+                  <a href="{{ data.remove_from_cart }}" class="btn btn-danger btn-rounded">
                     <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Remove from cart
                   </a>
                   <!-- <button class="btn btn-primary btn-rounded">
@@ -147,8 +147,14 @@
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                  <!-- <object>
+                    <param name="movie" value="/media_root/{{ video.videos }}">
+                    </param>
+                    <embed src="/media_root/{{ video.videos }}" type="application/x-shockwave-flash"></embed>
+                  </object> -->
                   <iframe id="player" class="embed-responsive-item" src="/media_root/{{ video.videos }}"
-                    type='video/mp4' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    type='video/mp4' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+                    playsInline></iframe>
                 </div>
               </div>
             </div>

@@ -5,11 +5,13 @@ from django_countries.widgets import CountrySelectWidget
 
 PAYMENT_CHOICES = (
     ('S', 'Stripe'),
-    ('P', 'PayPal')
+    ('P', 'PayPal'),
+    ('C', 'Cash Receive')
 )
 
 
 class CheckoutForm(forms.Form):
+    phone_number = forms.CharField(required=False)
     shipping_address = forms.CharField(required=False)
     shipping_address2 = forms.CharField(required=False)
     shipping_country = CountryField(blank_label='(select country)').formfield(
