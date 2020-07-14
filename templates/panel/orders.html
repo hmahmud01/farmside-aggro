@@ -24,7 +24,7 @@
                 </th>
                 <th class="th-sm">Total cost
                 </th>
-                <th class="th-sm">Status
+                <th class="th-sm">Phone Number
                 </th>
                 <th class="th-sm">Action
                 </th>
@@ -37,11 +37,12 @@
                 <td>{{ order.ordered_date }}</td>
                 <td>{{ order.received }}</td>
                 <td>{{ order.get_total }}</td>
-                <td><span class="badge badge-secondary">Active</span></td>
-                <td><a href="#" class="btn btn-sm btn-rounded btn-danger">Detail</a></td>
+                <td>{{ order.phone }}</td>
+                <td><a href="{% url 'core:panel-order-detail' order.id %}"
+                        class="btn btn-sm btn-rounded btn-danger">Detail</a></td>
             </tr>
             {% endfor %}
-        
+
         </tbody>
     </table>
 </div>

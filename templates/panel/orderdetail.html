@@ -1,0 +1,64 @@
+{% extends "panel/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <h2 class='mb-3'>Order Detail</h2>
+    <div class="d-flex justify-content-between">
+        <div>
+            <p>Order Detail for {{ data.id }}</p>
+        </div>
+    </div>
+
+    <div class="m-5">
+        <h3 class="mt-2 mb-2">Order Detail for {{ data.user.username }}</h3>
+        <div class="">
+            <p>Phone Number: {{ data.phone }}</p>
+            <p>User Name: {{ data.user.username }}</p>
+            <p>Date Ordered: {{ data.ordered_date }}</p>
+            {% if data.ordered %}
+            <p>Order Delivary Confirmed: Cofirmed</p>
+            {% else %}
+            <p>Order Delivary Confirmed: Not Cofirmed yet</p>
+            {% endif %}
+            {% if data.received %}
+            <p>Order Receieved: Recieved</p>
+            {% else %}
+            <p>Order Receieved: Not Recieved yet</p>
+            {% endif %}
+            <h4>Order Item List</h4>
+            {% for order_item in data.items.all %}
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">{{ order_item.quantity }} x {{ order_item.item.title}}</h6>
+                    <small class="text-muted">{{ order_item.item.description}}</small>
+                </div>
+                <span class="text-muted">৳{{ order_item.get_final_price }}</span>
+            </li>
+            {% endfor %}
+
+            <p>Total : {{ data.get_total }}</p>
+
+            <div class="mt-2 mb-2">
+                <h4>Shipping Address</h4>
+                <p>{{ data.shipping_address.street_address }}, {{ data.shipping_address.zip }},
+                    {{ data.shipping_address.country }} </p>
+            </div>
+
+            <a href="{% url 'core:panel-order-conf' data.id %}" class="btn btn-md btn-rounded btn-danger">Confirm
+                Delivary</a>
+            <a href="{% url 'core:panel-order-receive' data.id %}" class="btn btn-md btn-rounded btn-danger">Order
+                Recieved</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    $("#dtBasicExample").DataTable()
+</script>
+{% endblock %}
