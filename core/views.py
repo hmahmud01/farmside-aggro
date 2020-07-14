@@ -190,6 +190,25 @@ def adminorderlist(request):
     return render(request, "panel/orders.html", {'data': orders})
 
 
+def orderDetail(request, oid):
+    order = Order.objects.get(id=oid)
+    return render(request, "panel/orderdetail.html", {"data": order})
+
+
+def confOrder(request, oid):
+    order = Order.objects.get(id=oid)
+    order.ordered = True
+    order.save()
+    return redirect("core:panel-order-detail", oid=oid)
+
+
+def recieveOrder(request, oid):
+    order = Order.objects.get(id=oid)
+    order.received = True
+    order.save()
+    return redirect("core:panel-order-detail", oid=oid)
+
+
 class AdminUserList(TemplateView):
     template_name = "panel/users.html"
 
@@ -263,6 +282,11 @@ class CheckoutView(View):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
             if form.is_valid():
+                phone_number = form.cleaned_data.get(
+                    'phone_number'
+                )
+                order.phone = phone_number
+                order.save()
 
                 use_default_shipping = form.cleaned_data.get(
                     'use_default_shipping')
