@@ -38,8 +38,12 @@
                 <td>{{ order.received }}</td>
                 <td>{{ order.get_total }}</td>
                 <td>{{ order.phone }}</td>
-                <td><a href="{% url 'core:panel-order-detail' order.id %}"
-                        class="btn btn-sm btn-rounded btn-danger">Detail</a></td>
+                <td>
+                    <a href="{% url 'core:panel-order-detail' order.id %}"
+                        class="btn btn-sm btn-rounded btn-warning">Detail</a>
+                    <a href="{% url 'core:panel-order-delete' order.id %}"
+                        class="btn btn-sm btn-rounded btn-danger">Delete</a>
+                </td>
             </tr>
             {% endfor %}
 
