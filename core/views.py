@@ -195,6 +195,12 @@ def orderDetail(request, oid):
     return render(request, "panel/orderdetail.html", {"data": order})
 
 
+def deleteOrder(request, oid):
+    order = Order.objects.get(id=oid)
+    order.delete()
+    return redirect("core:panel-order")
+
+
 def confOrder(request, oid):
     order = Order.objects.get(id=oid)
     order.ordered = True
