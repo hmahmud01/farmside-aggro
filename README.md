@@ -1,9 +1,19 @@
-# Django Ecommerce
+# Farmside Agro
 
-This is an ecommerce website built with Django. The website displays products. Users can add and remove products to/from their cart while also specifying the quantity of each item.
+A basic E-commerce website with a landing page. This project is an extension of existing ecommerce built on django. In Addition this project is deployed in docker container.
 
-[![alt text](https://github.com/justdjango/django-ecommerce/blob/master/thumbnail.png "Logo")](https://youtu.be/z4USlooVXG0)
+Full Project strcuture is in basic django MTV framework format. 
 
-[Watch the tutorial series here](https://youtu.be/z4USlooVXG0)
-
-[Become a better Django developer](https://www.justdjango.com)
+## Application Structure
+  - core folder includes all the models, urls and views.
+  - all the settings are in djecommerce folder
+  - template folder include full project templates
+  - static_in_env includes all the static files
+  - Root folder includes docker config file(DOCKERFILE & docker-compose.yml)
+  
+## Run the app
+  - Install docker
+  - clone from this repository
+  - inside repository run docker-compose up
+  - redirect to localhost
+  
