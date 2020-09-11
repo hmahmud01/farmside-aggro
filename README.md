@@ -14,6 +14,6 @@ Full Project strcuture is in basic django MTV framework format.
 ## Run the app
   - Install docker
   - clone from this repository
-  - inside repository run docker-compose up
+  - inside repository run `docker-compose up`
   - redirect to localhost
   
